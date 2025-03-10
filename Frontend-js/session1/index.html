@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive User Profile</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .profile-card { border: 1px solid #ccc; padding: 15px; margin-top: 20px; display: inline-block; }
+    </style>
+</head>
+<body>
+
+    <h2>User Profile Form</h2>
+    <form id="userForm">
+        <input type="text" id="name" placeholder="Enter your name" required>  
+        <input type="email" id="email" placeholder="Enter your email" required>
+        <input type="number" id="age" placeholder="Enter your age" required>
+        <button type="submit">Generate Profile</button>
+    </form>
+
+    <div id="profile" class="profile-card"></div>
+
+    <script>
+        document.getElementById("userForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Get user input values
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const age = document.getElementById("age").value;
+
+            // Generate profile using template literals
+            const profileHTML = `
+                <h3>User Profile</h3>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Age:</strong> ${age}</p>
+            `;
+
+            // Display profile in the div
+            document.getElementById("profile").innerHTML = profileHTML;
+        });
+    </script>
+
+</body>
+</html>
